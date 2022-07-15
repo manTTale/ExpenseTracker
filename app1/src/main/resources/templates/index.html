@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container my-2">
+
+    <h1>Expense Tracker</h1>
+    <a th:href="@{/formularCheltuiala}" class="btn btn-primary btn-sm mb-3">Creaza o noua cheltuiala</a>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Suma</th>
+                <th>Data</th>
+                <th>Tip Cheltuiala</th>
+                <th>Actiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cheltuiala: ${listCheltuiala}">
+                <td th:text="${cheltuiala.nume}"></td>
+                <td th:text="${cheltuiala.suma}"></td>
+                <td th:text="${cheltuiala.data}"></td>
+                <td th:text="${cheltuiala.tipCheltuiala}"></td>
+                <td> <a th:href="@{/formularModificareCheltuiala/{id}(id=${cheltuiala.id})}" class="btn btn-primary">Modifica cheltuiala</a>
+                    <a th:href="@{/stergeCheltuiala/{id}(id=${cheltuiala.id})}" class="btn btn-danger">Sterge cheltuiala</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

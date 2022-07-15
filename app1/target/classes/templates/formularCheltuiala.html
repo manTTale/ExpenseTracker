@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular Cheltuiala noua</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Creaza o noua cheltuiala</h1>
+        <hr>
+        <h2>Salveaza cheltuiala</h2>
+        <form action="#" th:action="@{/creazaCheltuiala}" th:object="${cheltuialaNoua}" method="POST">
+
+            <input type="text" th:field="*{nume}" placeholder="Numele cheltuielii" class="form-control mb-4 col-4">
+            <input type="number" th:field="*{suma}" placeholder="Suma platita" class="form-control mb-4 col-4">
+            <input type="text" th:field="*{data}" placeholder="Data realizarii cheltuielii" class="form-control mb-4 col-4">
+            <input type="text" th:field="*{tipCheltuiala}" placeholder="Tipul cheltuielii" class="form-control mb-4 col-4">
+
+            <button type="submit" class="btn info-btn col-2">Salveaza cheltuiala</button>
+        </form>
+    </div>
+</body>
+</html>
